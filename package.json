@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bluebird": "^2.9.34",
+    "function-name": "0.0.3",
     "moment": "^2.10.6",
     "request": "^2.60.0",
     "request-promise": "^0.4.3",

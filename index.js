@@ -12,11 +12,12 @@ module.exports = {
 
     /* Export built-in deciders */
     deciders: {
-
+        DirectDecider: require('./lib/deciders/direct-decider'),
     },
 
     /* Export built-in plugins */
     plugins: {
-
+        BotInfoPlugin: require('./lib/plugins/bot-info-plugin'),
+        MessagesPlugin: require('./lib/plugins/messages-plugin'),
     },
 };

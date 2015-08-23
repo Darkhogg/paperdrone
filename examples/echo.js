@@ -1,21 +1,28 @@
 var paperdrone = require('..');
+var winston = require('winston');
+
+/* Setup the Winston logger */
+winston.level = 'silly';
+winston.cli();
 
 /* Create a bot with the telegram token passed on the command line */
 var bot = new paperdrone.Bot({
     'token': process.argv[2],
 });
 
-/* Add a plugin to the bot created inline froma function */
-bot.addPlugin(paperdrone.Plugin.new('echo', function (bot, options) {
-    /* Register the update event of the bot */
-    bot.on('update', function (update) {
+/* Add our dependencies */
+bot.addPlugin(new paperdrone.plugins.MessagesPlugin());
+bot.addPlugin(new paperdrone.plugins.BotInfoPlugin());
 
-        /* Use the bot's API to return the message */
-        return bot.api.sendMessage({
-            'chat_id': update.message.chat.id,
-            'text': update.message.text
-        });
+/* Register the update event of the bot */
+bot.on(['message.text', 'message.command'], function (message) {
+
+    /* Use the bot's API to return the message */
+    return bot.api.sendMessage({
+        'chat_id': message.chat.id,
+        'text': message.text
     });
-}));
+});
 
+/* Run the polling loop */
 bot.setupPollLoop();

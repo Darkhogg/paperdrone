@@ -18,6 +18,7 @@ module.exports = {
     /* Export built-in plugins */
     plugins: {
         BotInfoPlugin: require('./lib/plugins/bot-info-plugin'),
+        CommandsPlugin: require('./lib/plugins/commands-plugin'),
         MessagesPlugin: require('./lib/plugins/messages-plugin'),
     },
 };

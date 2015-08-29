@@ -19,6 +19,8 @@ module.exports = {
     plugins: {
         BotInfoPlugin: require('./lib/plugins/bot-info-plugin'),
         CommandsPlugin: require('./lib/plugins/commands-plugin'),
+        KeyedStoragePlugin: require('./lib/plugins/keyed-storage-plugin'),
         MessagesPlugin: require('./lib/plugins/messages-plugin'),
+        SchedulerPlugin: require('./lib/plugins/scheduler-plugin'),
     },
 };

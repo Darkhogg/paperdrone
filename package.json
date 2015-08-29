@@ -2,14 +2,23 @@
   "name": "paperdrone",
   "version": "0.1.0",
   "description": "A framework for writing Telegram Bots.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Darkhogg/paperdrone.git"
+  },
   "main": "index.js",
   "dependencies": {
     "bluebird": "^2.9.34",
     "function-name": "0.0.3",
+    "lodash": "^3.10.1",
     "moment": "^2.10.6",
     "request": "^2.60.0",
     "request-promise": "^0.4.3",
     "restify": "^3.0.3",
     "winston": "^1.0.1"
+  },
+  "devDependencies": {
+    "promised-mongo": "^1.2.0"
   }
 }

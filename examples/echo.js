@@ -12,10 +12,9 @@ var bot = new paperdrone.Bot({
 
 /* Add our dependencies */
 bot.addPlugin(new paperdrone.plugins.MessagesPlugin());
-bot.addPlugin(new paperdrone.plugins.CommandsPlugin());
 
 /* Register the update event of the bot */
-bot.on(['message.text', 'message.command'], function (message) {
+bot.on('message.text', function (message) {
 
     /* Use the bot's API to return the message */
     return bot.api.sendMessage({
@@ -26,6 +25,3 @@ bot.on(['message.text', 'message.command'], function (message) {
 
 /* Run the polling loop */
 bot.setupPollLoop();
-
-/* Run the ticking loop */
-bot.setupTickLoop();

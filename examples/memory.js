@@ -19,7 +19,7 @@ bot.addPlugin(new paperdrone.plugins.CommandsPlugin());
 bot.addPlugin(new paperdrone.plugins.KeyedStoragePlugin());
 
 /* Define our commands */
-bot.on('command.set', function (cmd, message) {
+bot.on('command.set', function ($evt, cmd, message) {
     var idx = cmd.payload.search(/\s/);
 
     var key = cmd.payload.substring(0, idx);
@@ -32,7 +32,7 @@ bot.on('command.set', function (cmd, message) {
     });
 });
 
-bot.on('command.get', function (cmd, message) {
+bot.on('command.get', function ($evt, cmd, message) {
     var key = cmd.payload.trim();
 
     bot.logger.info('[chat:%s] getting value: [%s]', message.chat.id, key);
@@ -43,7 +43,7 @@ bot.on('command.get', function (cmd, message) {
     });
 });
 
-bot.on('command.list', function (cmd, message) {
+bot.on('command.list', function ($evt, cmd, message) {
     bot.logger.info('[chat:%s] listing values', message.chat.id);
 
     return bot.storage.list('memory').then(function (list) {
@@ -52,7 +52,7 @@ bot.on('command.list', function (cmd, message) {
     });
 });
 
-bot.on('command.del', function (cmd, message) {
+bot.on('command.del', function ($evt, cmd, message) {
     var key = cmd.payload.trim();
 
     bot.logger.info('[chat:%s] deleting value: [%s]', message.chat.id, key);
@@ -62,7 +62,7 @@ bot.on('command.del', function (cmd, message) {
     });
 });
 
-bot.on('command.empty', function (cmd, message) {
+bot.on('command.empty', function ($evt, cmd, message) {
     var key = cmd.payload.trim();
 
     bot.logger.info('[chat:%s] emptying values', message.chat.id);

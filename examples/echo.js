@@ -14,7 +14,7 @@ var bot = new paperdrone.Bot({
 bot.addPlugin(new paperdrone.plugins.MessagesPlugin());
 
 /* Register the update event of the bot */
-bot.on('message.text', function (message) {
+bot.on('message.text', function ($evt, message) {
 
     /* Use the bot's API to return the message */
     return bot.api.sendMessage({

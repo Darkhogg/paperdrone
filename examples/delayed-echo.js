@@ -21,12 +21,12 @@ bot.addPlugin(new paperdrone.plugins.CommandsPlugin());
 bot.addPlugin(new paperdrone.plugins.SchedulerPlugin());
 
 /* Register the update event of the bot */
-bot.on('message.text', function (message) {
+bot.on('message.text', function ($evt, message) {
     /* Schedule the echo for a mine from now */
     return bot.scheduler.schedule('echo', moment().add(60, 's'), { 'chat': message.chat.id, 'text': message.text });
 });
 
-bot.on('scheduled.echo', function (type, when, data) {
+bot.on('scheduled.echo', function ($evt, type, when, data) {
     /* Use the bot's API to return the message */
     return bot.api.sendMessage({
         'chat_id': data.chat,
@@ -34,7 +34,7 @@ bot.on('scheduled.echo', function (type, when, data) {
     });
 });
 
-bot.on('command.list', function (cmd, message) {
+bot.on('command.list', function ($evt, cmd, message) {
     return bot.scheduler.list('echo').then(function (list) {
         var strList = list.filter(function (entry) {
             return entry.data.chat == message.chat.id;

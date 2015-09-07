@@ -1,4 +1,7 @@
 module.exports = {
+    /* Export misc */
+    utils: require('./lib/utils'),
+
     /* Export classes */
     API: require('./lib/api'),
     Bot: require('./lib/bot'),
@@ -22,6 +25,7 @@ module.exports = {
         HelpPlugin: require('./lib/plugins/help-plugin'),
         KeyedStoragePlugin: require('./lib/plugins/keyed-storage-plugin'),
         MessagesPlugin: require('./lib/plugins/messages-plugin'),
+        PrompterPlugin: require('./lib/plugins/prompter-plugin'),
         SchedulerPlugin: require('./lib/plugins/scheduler-plugin'),
     },
 };

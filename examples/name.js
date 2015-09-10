@@ -21,8 +21,14 @@ bot.addPlugin(new paperdrone.plugins.CommandsPlugin());
 bot.addPlugin(new paperdrone.plugins.PrompterPlugin());
 
 bot.on('command.start', function ($evt, cmd, msg) {
-    return bot.prompter.prompt(msg.chat.id, msg.from.id, 'name');
+    return Promise.all([
+        bot.prompter.prompt(msg.chat.id, msg.from.id, 'name'),
+        bot.prompter.prompt(msg.chat.id, msg.from.id, 'age')
+    ]);
 });
+
+
+/* Name prompt setup */
 
 bot.on('prompt.request.name', function ($evt, prompt) {
     return bot.api.sendMessage({
@@ -35,6 +41,23 @@ bot.on('prompt.complete.name', function ($evt, prompt, result) {
     return bot.api.sendMessage({
         'chat_id': prompt.chat,
         'text': 'Hello, ' + result.text + '!'
+    });
+});
+
+
+/* Age prompt setup */
+
+bot.on('prompt.request.age', function ($evt, prompt) {
+    return bot.api.sendMessage({
+        'chat_id': prompt.chat,
+        'text': 'Tell me your age'
+    });
+});
+
+bot.on('prompt.complete.age', function ($evt, prompt, result) {
+    return bot.api.sendMessage({
+        'chat_id': prompt.chat,
+        'text': 'Hello, person of ' + result.text + ' years old!'
     });
 });
 

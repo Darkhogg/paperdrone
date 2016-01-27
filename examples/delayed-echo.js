@@ -48,4 +48,4 @@ bot.on('command.list', function ($evt, cmd, message) {
 
 /* Run the polling and ticking loops */
 bot.setupPollLoop();
-bot.setupTickLoop();
+bot.setupTickLoop(10);

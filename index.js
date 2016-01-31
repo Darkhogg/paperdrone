@@ -27,5 +27,6 @@ module.exports = {
         MessagesPlugin: require('./lib/plugins/messages-plugin'),
         PrompterPlugin: require('./lib/plugins/prompter-plugin'),
         SchedulerPlugin: require('./lib/plugins/scheduler-plugin'),
+        UsersPlugin: require('./lib/plugins/users-plugin'),
     },
 };

@@ -1,6 +1,6 @@
 {
   "name": "paperdrone",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "A framework for writing Telegram Bots.",
   "license": "MIT",
   "repository": {
@@ -16,14 +16,14 @@
     "mongodb-bluebird": "0.0.9",
     "request": "^2.60.0",
     "request-promise": "^0.4.3",
-    "restify": "^3.0.3",
-    "winston": "^2.1.1"
+    "restify": "^3.0.3"
   },
   "devDependencies": {
     "kerberos": "0.0.18",
     "mongodb-bluebird": "0.0.9"
   },
   "peerDependencies": {
-    "mongodb-bluebird": "0.0.9"
+    "mongodb-bluebird": "0.0.9",
+    "winston": "^2.1.1"
   }
 }

@@ -1,26 +1,12 @@
-var paperdrone = require('..');
-var moment = require('moment');
-var mongodb = require('mongodb-bluebird');
-var winston = require('winston');
+'use strict';
+const pd = require('..');
+const moment = require('moment');
 
-/* Setup the Winston logger */
-winston.level = 'silly';
-winston.cli();
-
-mongodb.connect('mongodb://localhost/paperdrone').then(function (db) {
-
-    /* Create a bot with the telegram token passed on the command line */
-    var bot = new paperdrone.Bot({
-        'token': process.argv[2],
-        'mongo': {
-            'client': db
-        }
-    });
-
+moodule.exports = pd.Plugin.define('Example_Name', function (bot, options) {
     /* Add our dependencies */
-    bot.addPlugin(new paperdrone.plugins.MessagesPlugin());
-    bot.addPlugin(new paperdrone.plugins.CommandsPlugin());
-    bot.addPlugin(new paperdrone.plugins.PrompterPlugin());
+    bot.addPlugin(new pd.plugins.MessagesPlugin());
+    bot.addPlugin(new pd.plugins.CommandsPlugin());
+    bot.addPlugin(new pd.plugins.PrompterPlugin());
 
     bot.on('command.start', function ($evt, cmd, msg) {
         return Promise.all([
@@ -29,9 +15,7 @@ mongodb.connect('mongodb://localhost/paperdrone').then(function (db) {
         ]);
     });
 
-
     /* Name prompt setup */
-
     bot.on('prompt.request.name', function ($evt, prompt) {
         return bot.api.sendMessage({
             'chat_id': prompt.chat,
@@ -46,9 +30,7 @@ mongodb.connect('mongodb://localhost/paperdrone').then(function (db) {
         });
     });
 
-
     /* Age prompt setup */
-
     bot.on('prompt.request.age', function ($evt, prompt) {
         return bot.api.sendMessage({
             'chat_id': prompt.chat,
@@ -62,9 +44,4 @@ mongodb.connect('mongodb://localhost/paperdrone').then(function (db) {
             'text': 'Hello, person of ' + result.text + ' years old!'
         });
     });
-
-
-
-    /* Run the polling loop */
-    bot.setupPollLoop();
 });

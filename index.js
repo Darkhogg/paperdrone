@@ -1,3 +1,6 @@
+const events = require('events');
+events.EventEmitter.defaultMaxListeners = 30;
+
 module.exports = {
     /* Export misc */
     utils: require('./lib/utils'),

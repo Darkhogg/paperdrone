@@ -13,17 +13,21 @@
     "function-name": "^1.0.0",
     "lodash": "^4.1.0",
     "moment": "^2.10.6",
-    "mongodb-bluebird": "0.0.9",
     "request": "^2.60.0",
-    "request-promise": "^0.4.3",
+    "request-promise": "^2.0.0",
     "restify": "^3.0.3"
   },
   "devDependencies": {
     "kerberos": "0.0.18",
-    "mongodb-bluebird": "0.0.9"
+    "mongodb-bluebird": "0.0.9",
+    "winston": "^2.1.1"
   },
   "peerDependencies": {
     "mongodb-bluebird": "0.0.9",
     "winston": "^2.1.1"
+  },
+  "engines": {
+    "node": "^5.5.0",
+    "npm": "^3.6.0"
   }
 }

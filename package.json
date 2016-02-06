@@ -1,6 +1,6 @@
 {
   "name": "paperdrone",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "A framework for writing Telegram Bots.",
   "license": "MIT",
   "repository": {

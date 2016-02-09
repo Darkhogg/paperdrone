@@ -22,5 +22,5 @@ mongodb.connect('mongodb://localhost/paperdrone').then((db) => {
     bot.addPlugin(new ExamplePlugin());
 
     bot.setupPollLoop();
-    bot.setupTickLoop();
+    bot.setupTickLoop(15);
 });

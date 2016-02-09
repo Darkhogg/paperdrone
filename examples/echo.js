@@ -15,10 +15,10 @@ module.exports = pd.Plugin.define('Example_Echo', function (bot, options) {
     });
 
     bot.api.on('request', function ($evt, method, data) {
-        bot.logger.verbose('[API]  request to "%s"', method, data);
+        ///bot.logger.verbose('[API]  request to "%s":', method, data);
     });
 
     bot.api.on('response', function ($evt, method, data, result) {
-        bot.logger.verbose('[API]  response of "%s"', method, result);
+        //bot.logger.verbose('[API]  response of "%s":', method, result);
     });
 });

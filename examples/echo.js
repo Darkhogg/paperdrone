@@ -8,7 +8,7 @@ module.exports = pd.Plugin.define('Example_Echo', function (bot, options) {
     /* Register the update event of the bot */
     bot.on('message.text', function ($evt, message) {
         /* Use the bot's API to return the message */
-        return bot.api.sendMessage({
+        return new pd.API.Request('sendMessage', {
             'chat_id': message.chat.id,
             'text': message.text
         });

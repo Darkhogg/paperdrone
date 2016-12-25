@@ -1,30 +1,33 @@
 {
   "name": "paperdrone",
-  "version": "0.9.5",
+  "version": "0.10.0-1",
   "description": "A framework for writing Telegram Bots.",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Darkhogg/paperdrone.git"
-  },
+  "repository": "https://github.com/Darkhogg/paperdrone.git",
   "main": "index.js",
+  "scripts": {
+    "prepublish": "npm run babel",
+    "babel": "babel lib -d dist --source-maps",
+    "example": "npm run -s babel >/dev/null && node example.js"
+  },
   "dependencies": {
-    "bluebird": "^2.9.34",
+    "bluebird": "^2.11.0",
+    "bunyan": "^1.8.1",
+    "enhanced-event-emitter": "^1.2.1",
     "function-name": "^1.0.0",
-    "lodash": "^4.1.0",
-    "moment": "^2.10.6",
-    "request": "^2.60.0",
-    "request-promise": "^2.0.0",
+    "lodash": "^4.16.4",
+    "moment": "^2.15.1",
+    "mongodb-bluebird": "^0.1.1",
+    "request": "^2.75.0",
+    "request-promise": "^2.0.1",
     "restify": "^3.0.3"
   },
   "devDependencies": {
-    "kerberos": "0.0.18",
-    "mongodb-bluebird": "0.0.9",
-    "winston": "^2.1.1"
-  },
-  "peerDependencies": {
-    "mongodb-bluebird": "0.0.9",
-    "winston": "^2.1.1"
+    "babel-cli": "^6.5.2",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-latest": "^6.14.0",
+    "babel-runtime": "^6.11.6",
+    "source-map-support": "^0.4.6"
   },
   "engines": {
     "node": "^5.5.0",

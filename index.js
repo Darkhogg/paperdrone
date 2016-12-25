@@ -1,32 +1,45 @@
-module.exports = {
+'use strict';
+const pd = module.exports = {
     /* Export misc */
-    utils: require('./lib/utils'),
+    utils: require('./dist/utils'),
 
     /* Export classes */
-    API: require('./lib/api'),
-    Bot: require('./lib/bot'),
-    Marker: require('./lib/marker'),
-    Plugin: require('./lib/plugin'),
-
-    /* Export built-in markers */
-    markers: {
-        RamMarker: require('./lib/markers/ram-marker'),
-    },
-
-    /* Export built-in deciders */
-    deciders: {
-        DirectDecider: require('./lib/deciders/direct-decider'),
-    },
+    API: require('./dist/api').default,
+    APIError: require('./dist/api').APIError,
+    APIRequest: require('./dist/api').APIRequest,
+    Bot: require('./dist/bot').default,
+    Plugin: require('./dist/plugin').default,
 
     /* Export built-in plugins */
     plugins: {
-        BotInfoPlugin: require('./lib/plugins/bot-info-plugin'),
-        CommandsPlugin: require('./lib/plugins/commands-plugin'),
-        HelpPlugin: require('./lib/plugins/help-plugin'),
-        KeyedStoragePlugin: require('./lib/plugins/keyed-storage-plugin'),
-        MessagesPlugin: require('./lib/plugins/messages-plugin'),
-        PrompterPlugin: require('./lib/plugins/prompter-plugin'),
-        SchedulerPlugin: require('./lib/plugins/scheduler-plugin'),
-        UsersPlugin: require('./lib/plugins/users-plugin'),
+        CommandsPlugin: require('./dist/plugins/commands-plugin').default,
+        HelpPlugin: require('./dist/plugins/help-plugin').default,
+        InfoPlugin: require('./dist/plugins/info-plugin').default,
+        StoragePlugin: require('./dist/plugins/storage-plugin').default,
+        MessagesPlugin: require('./dist/plugins/messages-plugin').default,
+        PrompterPlugin: require('./dist/plugins/prompter-plugin').default,
+        PollingPlugin: require('./dist/plugins/polling-plugin').default,
+        SchedulerPlugin: require('./dist/plugins/scheduler-plugin').default,
+        TickerPlugin: require('./dist/plugins/ticker-plugin').default,
+        UpdatesPlugin: require('./dist/plugins/updates-plugin').default,
+        //UsersPlugin: require('./dist/plugins/users-plugin'),
+    },
+
+    /* Export bot creation main function */
+    createBot (token, options) {
+        let bot = new pd.Bot(token, options);
+
+        /* Enable basic plugins */
+        bot.enable('ticker', options);
+        bot.enable('polling', options);
+        bot.enable('updates', options);
+        bot.enable('info', options);
+
+        return bot;
     },
 };
+
+
+for (let plugin in pd.plugins) {
+    bot.define(new pd.plugins[plugin]());
+}

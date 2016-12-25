@@ -1,26 +1,25 @@
+#!/usr/bin/env node
 'use strict';
 const pd = require('.');
-const mongodb = require('mongodb-bluebird');
-const winston = require('winston');
+const bunyan = require('bunyan');
+const sourceMaps = require('source-map-support');
 
-const ExamplePlugin = require('./examples/' + process.argv[2]);
+sourceMaps.install();
 
-/* Setup the Winston logger */
-winston.level = 'silly';
-winston.cli();
+var bot = pd.createBot(process.argv[3], {
+    'logger': bunyan.createLogger({
+        'name': 'pd-ex-' + process.argv[2],
+        'level': 'trace'
+    })
+});
 
-/* Connect to mongo, create and run bot */
-mongodb.connect('mongodb://localhost/paperdrone').then((db) => {
-    /* Create a bot with the telegram token passed on the command line */
-    var bot = new pd.Bot({
-        'token': process.argv[3],
-        'mongo': {
-            'client': db
-        }
-    });
+process.on('unhandledRejection', (err) => {
+    bot.logger.error(err);
+    process.exit(1);
+});
 
-    bot.addPlugin(new ExamplePlugin());
-
-    bot.setupPollLoop();
-    bot.setupTickLoop(15);
+const ExamplePlugin = require('./dist/examples/' + process.argv[2]).default;
+bot.enable(new ExamplePlugin(), { 'mongo': 'mongodb://127.0.0.1/paperdrone', 'prefix': 'pd-ex.'+process.argv[2]+'.' }).then(() => {
+    bot.startPolling(3);
+    bot.startTicking(5);
 });

@@ -1,6 +1,6 @@
 {
   "name": "paperdrone",
-  "version": "0.10.0-1",
+  "version": "0.10.0-2",
   "description": "A framework for writing Telegram Bots.",
   "license": "MIT",
   "repository": "https://github.com/Darkhogg/paperdrone.git",
@@ -13,8 +13,7 @@
   "dependencies": {
     "bluebird": "^2.11.0",
     "bunyan": "^1.8.1",
-    "enhanced-event-emitter": "^1.2.1",
-    "function-name": "^1.0.0",
+    "enhanced-event-emitter": "^1.2.3",
     "lodash": "^4.16.4",
     "moment": "^2.15.1",
     "mongodb-bluebird": "^0.1.1",

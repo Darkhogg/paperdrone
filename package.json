@@ -1,6 +1,6 @@
 {
   "name": "paperdrone",
-  "version": "0.10.0-2",
+  "version": "0.10.0-3",
   "description": "A framework for writing Telegram Bots.",
   "license": "MIT",
   "repository": "https://github.com/Darkhogg/paperdrone.git",

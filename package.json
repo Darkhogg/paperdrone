@@ -1,19 +1,19 @@
 {
   "name": "paperdrone",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "A framework for writing Telegram Bots.",
   "license": "MIT",
   "repository": "https://github.com/Darkhogg/paperdrone.git",
   "main": "index.js",
   "scripts": {
-    "prepublish": "npm run babel",
+    "prepare": "npm run babel",
     "babel": "babel lib -d dist --source-maps",
     "example": "npm run -s babel >/dev/null && node example.js"
   },
   "dependencies": {
     "bluebird": "^2.11.0",
     "bunyan": "^1.8.1",
-    "enhanced-event-emitter": "^1.2.3",
+    "enhanced-event-emitter": "^1.2.4",
     "lodash": "^4.16.4",
     "moment": "^2.15.1",
     "mongodb-bluebird": "^0.1.1",

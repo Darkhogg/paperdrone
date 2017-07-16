@@ -25,6 +25,7 @@ crashit.addHook((cause) => {
     bot.configure('mongo', {'uri': 'mongodb://127.0.0.1/paperdrone', 'prefix': `pd-ex.${process.argv[2]}.`})
     bot.configureAndEnable('polling', {'timeout': 3});
     bot.configureAndEnable('ticking', {'interval': 5});
+    bot.configureAndEnable('help', {'text': 'Thisis an example bot running as @%%USERNAME%%'});
 
     await bot.start();
 })();

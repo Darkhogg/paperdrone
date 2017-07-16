@@ -1,17 +1,13 @@
-import pd from '../..';
+const pd = require('..');
 
 const MESSAGE_BASE_TEXT = 'This is a message with an inline example keyboard!';
 
-export default class InlineExPlg extends pd.Plugin {
-    constructor () {
-        super('ex/inline', ['queries']);
-    }
+module.exports = pd.Plugin.define('ex/inline', ['queries'], {
+    async start (config) {
+        this.on('inline', async ($evt, inline) => {
+            const isoDate = (new Date()).toISOString();
 
-    async onEnable (bot, options) {
-        bot.on('inline', async ($evt, inline) => {
-            let isoDate = (new Date()).toISOString();
-
-            let results = (new Array(8)).fill(null).map((o, i) => ({
+            const results = (new Array(8)).fill(null).map((o, i) => ({
                 'type': 'article',
                 'id': isoDate + '_' + i,
                 'title': '[' + inline.query + '] ' + isoDate + ' - #' + (i+1),
@@ -30,7 +26,7 @@ export default class InlineExPlg extends pd.Plugin {
             })
         });
 
-        bot.on('inline-chosen', async ($evt, inline) => {
+        this.on('inline-chosen', async ($evt, inline) => {
             return new pd.APIRequest('sendMessage', {
                 'chat_id': inline.from.id,
                 'text': 'Responded to <code>' + inline.query + '</code> with <i>#' + inline.result_id + '</i>.',
@@ -38,4 +34,4 @@ export default class InlineExPlg extends pd.Plugin {
             });
         });
     }
-};
+});

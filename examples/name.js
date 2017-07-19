@@ -1,7 +1,7 @@
 const pd = require('..');
 
 
-module.exports = pd.Plugin.define('ex/name', ['messages', 'commands', 'prompter'], {
+module.exports = pd.Plugin.define('ex.name', ['messages', 'commands', 'prompter'], {
   async start (config) {
     this.on('command.start', async ($evt, cmd, msg) => {
       await this.bot.prompter.prompt(msg.chat.id, msg.from.id, 'name');

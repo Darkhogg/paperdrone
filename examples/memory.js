@@ -1,6 +1,6 @@
 const pd = require('..');
 
-module.exports = pd.Plugin.define('ex/memory', ['commands', 'mongo'], {
+module.exports = pd.Plugin.define('ex.memory', ['commands', 'mongo'], {
   async start (config) {
     const collection = this.bot.mongo.collection('memory');
 

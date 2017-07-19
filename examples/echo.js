@@ -1,6 +1,6 @@
 const pd = require('..');
 
-module.exports = pd.Plugin.define('ex/echo', ['messages'], {
+module.exports = pd.Plugin.define('ex.echo', ['messages'], {
   async start (config) {
     /* Register the update event of the bot */
     this.on('message.text', async ($evt, message) => {

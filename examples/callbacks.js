@@ -3,7 +3,7 @@ const pd = require('..');
 const MESSAGE_BASE_TEXT = 'This is a message with an inline example keyboard!';
 
 
-module.exports = pd.Plugin.define('ex/callbacks', ['commands', 'queries'], {
+module.exports = pd.Plugin.define('ex.callbacks', ['commands', 'queries'], {
   async start (config) {
     /* The /start command will generate the default message */
     this.on('command.start', async ($evt, cmd, msg) => {

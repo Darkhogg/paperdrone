@@ -1,7 +1,7 @@
 const pd = require('..');
 const moment = require('moment');
 
-module.exports = pd.Plugin.define('ex/delayed-echo', ['messages', 'commands', 'scheduler'], {
+module.exports = pd.Plugin.define('ex.delayed_echo', ['messages', 'commands', 'scheduler'], {
   async start (config) {
     /* Register the update event of the bot */
     this.on('message.text', async ($evt, message) => {

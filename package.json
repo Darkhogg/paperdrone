@@ -1,6 +1,6 @@
 {
   "name": "paperdrone",
-  "version": "0.13.2",
+  "version": "0.13.3",
   "description": "A framework for writing Telegram Bots.",
   "license": "MIT",
   "repository": "https://github.com/Darkhogg/paperdrone.git",
@@ -13,6 +13,7 @@
     "body-parser": "^1.17.1",
     "botanio": "0.0.6",
     "bunyan": "^1.8.9",
+    "cachefn": "^1.0.3",
     "dependency-solver": "^1.0.6",
     "enhanced-event-emitter": "^1.3.1",
     "lodash": "^4.17.4",
@@ -31,6 +32,7 @@
     "npm": "^5.0.1"
   },
   "devDependencies": {
-    "crashit": "^0.4.1"
+    "crashit": "^0.4.1",
+    "express": "^4.15.3"
   }
 }

@@ -32,11 +32,11 @@ crashit.addHook((cause) => {
   // bot.configureAndEnable('monitor', {'express_router': app});
   bot.configureAndEnable('help', {'text': 'Thisis an example bot running as @%%USERNAME%%'});
 
-  bot.enable('chats');
+  // bot.enable('chats');
 
   await bot.start();
 
-  bot.monitor.addTab('test', {name: 'Test'});
+  // bot.monitor.addTab('test', {name: 'Test'});
 
   app.listen(1234);
 })();

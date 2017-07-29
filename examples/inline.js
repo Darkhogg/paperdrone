@@ -1,6 +1,6 @@
 const pd = require('..');
 
-module.exports = pd.Plugin.define('ex.inline', ['queries'], {
+module.exports = pd.Plugin.define('ex.inline', ['inline'], {
   async start (config) {
     this.on('inline', async ($evt, inline) => {
       const isoDate = (new Date()).toISOString();

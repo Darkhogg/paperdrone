@@ -11,7 +11,6 @@
   "dependencies": {
     "bluebird": "^2.11.0",
     "body-parser": "^1.17.1",
-    "botanio": "0.0.6",
     "bunyan": "^1.8.9",
     "cachefn": "^1.0.3",
     "dependency-solver": "^1.0.6",
@@ -24,7 +23,7 @@
     "mongodb-bluebird": "^0.1.1",
     "request": "^2.81.0",
     "request-promise": "^2.0.1",
-    "restify": "^3.0.3",
+    "restify": "^6.3.4",
     "tsort": "0.0.1"
   },
   "engines": {

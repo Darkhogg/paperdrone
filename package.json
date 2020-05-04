@@ -6,7 +6,9 @@
   "repository": "https://github.com/Darkhogg/paperdrone.git",
   "main": "lib/index.js",
   "scripts": {
-    "example": "node example.js"
+    "example": "node example.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "bluebird": "^2.11.0",
@@ -24,7 +26,8 @@
     "request": "^2.81.0",
     "request-promise": "^2.0.1",
     "restify": "^6.3.4",
-    "tsort": "0.0.1"
+    "tsort": "0.0.1",
+    "snyk": "^1.317.0"
   },
   "engines": {
     "node": "^8.1.0",
@@ -33,5 +36,6 @@
   "devDependencies": {
     "crashit": "^0.4.1",
     "express": "^4.15.3"
-  }
+  },
+  "snyk": true
 }
